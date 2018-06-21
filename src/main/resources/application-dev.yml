@@ -1,0 +1,52 @@
+---
+#
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+#
+
+server:
+    port: 9087
+
+
+
+# Note: the properties surounded by arobase are defined in the pom.xml file
+#       and get replaced by maven during build time. Resulting file can
+#       be found in target/classes folder
+
+spring:
+    profiles:
+        active: dev
+        include: swagger
+        
+    datasource:
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:file:~/test/db/angular-lab;MVCC=TRUE;FILE_LOCK=NO;DB_CLOSE_ON_EXIT=TRUE;
+        name:
+        username: root
+        password: manager
+
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: none
+            naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        show_sql: true
+        properties:
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: false
+            hibernate.ddl-auto: create-drop
+
+    mail:
+        host: localhost
+
+    messages:
+        cache-duration: 1
+
+    resources:
+        chain:
+            cache: false
+
+
