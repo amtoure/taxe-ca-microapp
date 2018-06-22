@@ -21,7 +21,7 @@ public class TaxeCaMicroappApplicationTests {
 	private final Logger log = LoggerFactory.getLogger(TaxeCaMicroappApplicationTests.class);
 
 	@Test
-	public void test_creationcCommande_et_clacul_montTtc_et_MontantTaxe() throws IllegalCommandeException {
+	public void test_creationcCommande_et_calcul_montantTtc_et_montantTaxe() throws IllegalCommandeException {
 		Commande comande = Commande.builder().build();
 		LigneCommande ligneCommande = LigneCommande.builder().article("livres", false, Typearticle.TAXE_10, 12.49, 2)
 				.build();
